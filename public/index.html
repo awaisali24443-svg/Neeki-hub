@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neekihub - Spiritual Islamic Learning & Devotional Platform">
+    <meta name="theme-color" content="#d4af37">
+    <title>Neekihub - نیکی ہب - Spiritual Islamic Platform</title>
+    
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" href="/assets/icons/icon-192x192.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Poppins:wght@300;400;600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    
+    <!-- ==================== DIVINE BACKGROUND ==================== -->
+    <div class="divine-background">
+        <div class="kaaba-background"></div>
+        <div class="stars-container" id="starsContainer"></div>
+        <div class="crescent-moon">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="divine-overlay"></div>
+    </div>
+
+    <!-- ==================== LOADING SCREEN ==================== -->
+    <div class="spiritual-loader" id="spiritualLoader">
+        <div class="loader-content">
+            <div class="islamic-symbol">
+                <i class="fas fa-mosque"></i>
+            </div>
+            <div class="bismillah-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <div class="loader-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MINIMALIST NAVIGATION ==================== -->
+    <nav class="floating-nav" id="floatingNav">
+        <div class="nav-icon" data-section="home" title="Home">
+            <i class="fas fa-home"></i>
+            <span class="nav-label" data-translate="nav.home">Home</span>
+        </div>
+        <div class="nav-icon" data-section="dua" title="Duas">
+            <i class="fas fa-hands-praying"></i>
+            <span class="nav-label" data-translate="nav.dua">Dua</span>
+        </div>
+        <div class="nav-icon" data-section="quran" title="Quran">
+            <i class="fas fa-book-quran"></i>
+            <span class="nav-label" data-translate="nav.quran">Quran</span>
+        </div>
+        <div class="nav-icon" data-section="hadith" title="Hadith">
+            <i class="fas fa-scroll"></i>
+            <span class="nav-label" data-translate="nav.hadith">Hadith</span>
+        </div>
+        <div class="nav-icon" data-section="quotes" title="Quotes">
+            <i class="fas fa-quote-right"></i>
+            <span class="nav-label" data-translate="nav.quotes">Quotes</span>
+        </div>
+        <div class="nav-icon" data-section="qibla" title="Qibla">
+            <i class="fas fa-compass"></i>
+            <span class="nav-label" data-translate="nav.qibla">Qibla</span>
+        </div>
+        <div class="nav-icon" data-section="settings" title="Settings">
+            <i class="fas fa-cog"></i>
+            <span class="nav-label" data-translate="nav.settings">Settings</span>
+        </div>
+    </nav>
+
+    <!-- ==================== LANGUAGE SWITCHER ==================== -->
+    <div class="language-switcher">
+        <div class="lang-icon active" data-lang="en" title="English">EN</div>
+        <div class="lang-icon" data-lang="ur" title="اردو">اردو</div>
+        <div class="lang-icon" data-lang="ps" title="پښتو">پښتو</div>
+    </div>
+
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
+    <main class="main-content">
+        
+        <!-- HOME SECTION -->
+        <section class="content-section active" id="homeSection">
+            <div class="spiritual-card">
+                <div class="card-header">
+                    <h1 class="golden-heading" data-translate="home.welcome">
+                        Welcome to Neekihub
+                    </h1>
+                    <p class="subtitle" data-translate="home.subtitle">
+                        Your Spiritual Journey Companion
+                    </p>
+                </div>
+                
+                <!-- Random Daily Content -->
+                <div class="daily-content" id="dailyContent">
+                    <div class="content-type" id="contentType">Ayah of the Day</div>
+                    <div class="arabic-text" id="arabicText">Loading...</div>
+                    <div class="translation-text" id="translationText"></div>
+                    <div class="reference-text" id="referenceText"></div>
+                    <button class="refresh-btn" onclick="loadRandomContent()">
+                        <i class="fas fa-sync-alt"></i>
+                        <span data-translate="common.refresh">Refresh</span>
+                    </button>
+                </div>
+
+                <!-- Quick Access Cards -->
+                <div class="quick-access">
+                    <div class="quick-card" onclick="openSection('dua')">
+                        <i class="fas fa-hands-praying"></i>
+                        <span data-translate="quick.dua">Daily Duas</span>
+                    </div>
+                    <div class="quick-card" onclick="openSection('quran')">
+                        <i class="fas fa-book-quran"></i>
+                        <span data-translate="quick.quran">Quran</span>
+                    </div>
+                    <div class="quick-card" onclick="openSection('hadith')">
+                        <i class="fas fa-scroll"></i>
+                        <span data-translate="quick.hadith">Hadith</span>
+                    </div>
+                    <div class="quick-card" onclick="openSection('qibla')">
+                        <i class="fas fa-compass"></i>
+                        <span data-translate="quick.qibla">Qibla</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DUA SECTION -->
+        <section class="content-section" id="duaSection">
+            <div class="spiritual-card">
+                <div class="card-header">
+                    <button class="back-btn" onclick="goToHome()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2 class="golden-heading" data-translate="dua.title">Daily Duas</h2>
+                </div>
+                
+                <div class="dua-categories">
+                    <button class="category-tag active" data-category="all">
+                        <span data-translate="dua.all">All</span>
+                    </button>
+                    <button class="category-tag" data-category="morning">
+                        <span data-translate="dua.morning">Morning</span>
+                    </button>
+                    <button class="category-tag" data-category="evening">
+                        <span data-translate="dua.evening">Evening</span>
+                    </button>
+                    <button class="category-tag" data-category="eating">
+                        <span data-translate="dua.eating">Eating</span>
+                    </button>
+                    <button class="category-tag" data-category="travel">
+                        <span data-translate="dua.travel">Travel</span>
+                    </button>
+                </div>
+
+                <div class="duas-container" id="duasContainer">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- QURAN SECTION -->
+        <section class="content-section" id="quranSection">
+            <div class="spiritual-card">
+                <div class="card-header">
+                    <button class="back-btn" onclick="goToHome()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2 class="golden-heading" data-translate="quran.title">Holy Quran</h2>
+                </div>
+                
+                <div class="surah-selector">
+                    <select id="surahSelect" class="spiritual-select">
+                        <option value="1">1. Al-Fatihah - الفاتحة</option>
+                        <option value="112">112. Al-Ikhlas - الإخلاص</option>
+                    </select>
+                </div>
+
+                <div class="verse-display" id="verseDisplay">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div class="verse-navigation">
+                    <button class="nav-btn" onclick="navigateVerse('prev')">
+                        <i class="fas fa-chevron-left"></i>
+                        <span data-translate="common.previous">Previous</span>
+                    </button>
+                    <span class="verse-counter" id="verseCounter">1/7</span>
+                    <button class="nav-btn" onclick="navigateVerse('next')">
+                        <span data-translate="common.next">Next</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HADITH SECTION -->
+        <section class="content-section" id="hadithSection">
+            <div class="spiritual-card">
+                <div class="card-header">
+                    <button class="back-btn" onclick="goToHome()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2 class="golden-heading" data-translate="hadith.title">Hadith Collection</h2>
+                </div>
+                
+                <div class="hadith-container" id="hadithContainer">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- QUOTES SECTION -->
+        <section class="content-section" id="quotesSection">
+            <div class="spiritual-card">
+                <div class="card-header">
+                    <button class="back-btn" onclick="goToHome()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2 class="golden-heading" data-translate="quotes.title">Islamic Wisdom</h2>
+                </div>
+                
+                <div class="quotes-container" id="quotesContainer">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- QIBLA SECTION -->
+        <section class="content-section" id="qiblaSection">
+            <div class="spiritual-card">
+                <div class="card-header">
+                    <button class="back-btn" onclick="goToHome()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2 class="golden-heading" data-translate="qibla.title">Qibla Finder</h2>
+                </div>
+                
+                <div class="qibla-compass">
+                    <div class="compass-container">
+                        <div class="compass-circle" id="compassCircle">
+                            <div class="compass-needle"></div>
+                            <div class="kaaba-icon">
+                                <i class="fas fa-kaaba"></i>
+                            </div>
+                        </div>
+                        <div class="compass-labels">
+                            <span class="dir-label north">N</span>
+                            <span class="dir-label east">E</span>
+                            <span class="dir-label south">S</span>
+                            <span class="dir-label west">W</span>
+                        </div>
+                    </div>
+                    
+                    <div class="qibla-info">
+                        <div class="info-row">
+                            <span data-translate="qibla.direction">Direction:</span>
+                            <strong id="qiblaDirection">--°</strong>
+                        </div>
+                        <div class="info-row">
+                            <span data-translate="qibla.distance">Distance:</span>
+                            <strong id="qiblaDistance">-- km</strong>
+                        </div>
+                    </div>
+
+                    <button class="spiritual-btn" onclick="findQibla()">
+                        <i class="fas fa-location-crosshairs"></i>
+                        <span data-translate="qibla.find">Find Qibla</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SETTINGS SECTION -->
+        <section class="content-section" id="settingsSection">
+            <div class="spiritual-card">
+                <div class="card-header">
+                    <button class="back-btn" onclick="goToHome()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2 class="golden-heading" data-translate="settings.title">Settings</h2>
+                </div>
+                
+                <div class="settings-container">
+                    <div class="setting-item">
+                        <i class="fas fa-moon"></i>
+                        <span data-translate="settings.theme">Theme</span>
+                        <button class="toggle-btn" id="themeToggle">
+                            <span class="toggle-slider"></span>
+                        </button>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <i class="fas fa-bell"></i>
+                        <span data-translate="settings.notifications">Prayer Notifications</span>
+                        <button class="toggle-btn">
+                            <span class="toggle-slider"></span>
+                        </button>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <i class="fas fa-volume-up"></i>
+                        <span data-translate="settings.audio">Audio Playback</span>
+                        <button class="toggle-btn active">
+                            <span class="toggle-slider"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FLOATING AI ASSISTANT ==================== -->
+    <div class="floating-ai" id="floatingAI" onclick="toggleAIChat()">
+        <div class="ai-glow-ring"></div>
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <!-- AI CHAT MODAL -->
+    <div class="ai-chat-modal" id="aiChatModal">
+        <div class="ai-chat-header">
+            <div class="ai-title">
+                <i class="fas fa-robot"></i>
+                <span data-translate="ai.title">Ask Neeki AI</span>
+            </div>
+            <button class="close-ai" onclick="toggleAIChat()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="ai-chat-messages" id="aiMessages">
+            <div class="ai-message bot">
+                <div class="message-bubble">
+                    <p data-translate="ai.greeting">As-salamu alaykum! I'm Neeki AI, your Islamic knowledge assistant. Ask me anything about Islam, Quran, Hadith, or Islamic teachings.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ai-chat-input">
+            <input type="text" id="aiInput" placeholder="Ask your question..." data-translate-placeholder="ai.placeholder">
+            <button onclick="sendAIMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== NOTIFICATION TOAST ==================== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="/main.js"></script>
+    <script src="/modules/spiritual-ui.js"></script>
+    <script src="/modules/random-content.js"></script>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('✅ Service Worker registered'))
+                    .catch(err => console.log('❌ SW registration failed'));
+            });
+        }
+    </script>
+</body>
+</html>
