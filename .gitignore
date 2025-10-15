@@ -1,0 +1,383 @@
+# =========================================
+# NEEKIHUB - COMPLETE .gitignore
+# =========================================
+
+# ==================== NODE ====================
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Package managers
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ==================== ENVIRONMENT ====================
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+.env.*.local
+
+# ==================== LOGS ====================
+
+# Log files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ==================== OPERATING SYSTEMS ====================
+
+# macOS
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ==================== IDEs / EDITORS ====================
+
+# Visual Studio Code
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# JetBrains IDEs (WebStorm, IntelliJ, etc.)
+.idea/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/contentModel.xml
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+*.iml
+*.ipr
+*.iws
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-package
+*.cache
+
+# Vim
+*.swp
+*.swo
+*.swn
+*.bak
+*~
+.netrwhist
+
+# Emacs
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Atom
+.atom/
+
+# ==================== BUILD / DISTRIBUTION ====================
+
+# Build directories
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.vuepress/dist/
+
+# Production builds
+public/build/
+static/build/
+
+# ==================== TESTING ====================
+
+# Test coverage
+coverage/
+*.lcov
+.nyc_output/
+lib-cov/
+.grunt/
+.lock-wscript
+.tsbuildinfo
+
+# Jest
+jest.config.js
+.jest/
+
+# ==================== DATABASES ====================
+
+# SQLite
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# MongoDB
+data/db/
+
+# PostgreSQL
+*.psql
+
+# ==================== TEMPORARY FILES ====================
+
+# Temporary directories
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+
+# ==================== SECURITY ====================
+
+# API keys and secrets
+secrets.json
+credentials.json
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+.npmrc
+
+# SSH keys
+id_rsa
+id_rsa.pub
+id_dsa
+id_dsa.pub
+known_hosts
+
+# ==================== MEDIA / UPLOADS ====================
+
+# User uploaded files (if you add upload feature later)
+uploads/
+public/uploads/
+static/uploads/
+media/uploads/
+
+# Large media files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.flac
+
+# ==================== DEPLOYMENT ====================
+
+# Vercel
+.vercel
+.vercel/*
+
+# Netlify
+.netlify
+.netlify/*
+
+# Render
+.render/
+.render-buildpacks/
+
+# Heroku
+.heroku/
+
+# AWS
+.elasticbeanstalk/
+
+# ==================== PACKAGE MANAGERS ====================
+
+# NPM
+npm-debug.log*
+.npm/
+
+# Yarn
+.yarn/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# PNPM
+.pnpm-store/
+
+# ==================== MISC ====================
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Documentation
+docs/_build/
+site/
+
+# Storybook
+storybook-static/
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Capacitor (if you convert to mobile app later)
+.capacitor/
+android/
+ios/
+xcuserdata/
+
+# React Native (if you use React Native later)
+.expo/
+.expo-shared/
+
+# ==================== PROJECT SPECIFIC ====================
+
+# Neekihub specific
+public/assets/icons/*
+!public/assets/icons/.gitkeep
+
+# User data (if stored locally)
+user-data/
+bookmarks/
+progress/
+
+# Cache
+.cache/
+cache/
+
+# Debug files
+debug.log
+error.log
+
+# ==================== KEEP THESE FILES ====================
+
+# Keep empty directories with .gitkeep
+!**/.gitkeep
+
+# ==================== END ====================
