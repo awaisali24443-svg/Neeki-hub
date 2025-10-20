@@ -1,0 +1,72 @@
+[
+  {
+    "hadith": {
+      "arabic": "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى",
+      "text": {
+        "en": "Actions are judged by intentions, and every person will be rewarded according to their intention.",
+        "ur": "تمام اعمال کا دارومدار نیتوں پر ہے اور ہر شخص کو اس کی نیت کے مطابق بدلہ ملے گا",
+        "ps": "عملونه د نیتونو په اساس دي او هر څوک به د خپل نیت مطابق جزا ترلاسه کړي"
+      },
+      "reference": "Sahih Bukhari 1:1:1"
+    },
+    "collection": "Bukhari",
+    "category": "Intentions",
+    "book": "Book of Revelation"
+  },
+  {
+    "hadith": {
+      "arabic": "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ",
+      "text": {
+        "en": "The Muslim is the one from whose tongue and hand the Muslims are safe.",
+        "ur": "مسلمان وہ ہے جس کی زبان اور ہاتھ سے دوسرے مسلمان محفوظ رہیں",
+        "ps": "مسلمان هغه دی چې نور مسلمانان د هغه د ژبې او لاس څخه خوندي وي"
+      },
+      "reference": "Sahih Bukhari 1:2:9"
+    },
+    "collection": "Bukhari",
+    "category": "Character",
+    "book": "Book of Faith"
+  },
+  {
+    "hadith": {
+      "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
+      "text": {
+        "en": "Whoever believes in Allah and the Last Day should speak good or remain silent.",
+        "ur": "جو شخص اللہ اور آخرت کے دن پر ایمان رکھتا ہے اسے چاہیے کہ اچھی بات کہے یا خاموش رہے",
+        "ps": "څوک چې په الله او په قیامت ورځ ایمان لري هغه باید ښه خبره وکړي یا خاموش پاتې شي"
+      },
+      "reference": "Sahih Bukhari 8:73:47"
+    },
+    "collection": "Bukhari",
+    "category": "Speech",
+    "book": "Book of Good Manners"
+  },
+  {
+    "hadith": {
+      "arabic": "مَنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ",
+      "text": {
+        "en": "Part of the perfection of one's Islam is leaving that which does not concern him.",
+        "ur": "انسان کے اسلام کی خوبی یہ ہے کہ وہ بے فائدہ چیزوں کو چھوڑ دے",
+        "ps": "د انسان د اسلام د ښایست یوه برخه داده چې هغه بې ګټې شیان پریږدي"
+      },
+      "reference": "Jami at-Tirmidhi 2318"
+    },
+    "collection": "Tirmidhi",
+    "category": "Character",
+    "book": "Book of Zuhd"
+  },
+  {
+    "hadith": {
+      "arabic": "الدِّينُ النَّصِيحَةُ",
+      "text": {
+        "en": "The religion is sincere advice.",
+        "ur": "دین خیر خواہی کا نام ہے",
+        "ps": "دین د خیرخواهۍ نوم دی"
+      },
+      "reference": "Sahih Muslim 55"
+    },
+    "collection": "Muslim",
+    "category": "Character",
+    "book": "Book of Faith"
+  }
+]

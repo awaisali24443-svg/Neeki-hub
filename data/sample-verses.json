@@ -1,0 +1,138 @@
+[
+  {
+    "verse": {
+      "number": 255,
+      "arabic": "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ",
+      "translation": {
+        "en": "Allah! There is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth.",
+        "ur": "اللہ وہ ہے جس کے سوا کوئی معبود نہیں، زندہ ہے، قائم رہنے والا ہے، اسے نہ اونگھ آتی ہے اور نہ نیند۔ جو کچھ آسمانوں میں ہے اور جو کچھ زمین میں ہے سب اسی کا ہے",
+        "ps": "الله هغه دی چې له هغه پرته بل معبود نشته، ژوندی دی، قایم دی، نه یې خوب راځي او نه خوب۔ هر څه چې په اسمانونو او ځمکه کې دي د هغه دي"
+      }
+    },
+    "surah": {
+      "number": 2,
+      "name": "Al-Baqarah",
+      "nameArabic": "البقرة"
+    },
+    "tafseer": [
+      {
+        "name": "Ibn Kathir",
+        "url": "https://quran.com/2/255/tafsirs/en-tafisr-ibn-kathir"
+      },
+      {
+        "name": "Al-Jalalayn",
+        "url": "https://quran.com/2/255/tafsirs/en-tafsir-al-jalalayn"
+      }
+    ]
+  },
+  {
+    "verse": {
+      "number": 1,
+      "arabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+      "translation": {
+        "en": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+        "ur": "شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے",
+        "ps": "د الله په نامه چې خورا مهربانه او رحم کوونکی دی"
+      }
+    },
+    "surah": {
+      "number": 1,
+      "name": "Al-Fatihah",
+      "nameArabic": "الفاتحة"
+    },
+    "tafseer": [
+      {
+        "name": "Ibn Kathir",
+        "url": "https://quran.com/1/1/tafsirs/en-tafisr-ibn-kathir"
+      }
+    ]
+  },
+  {
+    "verse": {
+      "number": 2,
+      "arabic": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+      "translation": {
+        "en": "All praise is due to Allah, Lord of the worlds.",
+        "ur": "تمام تعریفیں اللہ کے لیے ہیں جو تمام جہانوں کا پروردگار ہے",
+        "ps": "ټول ستاینې د الله لپاره ده چې د ټولو نړیو رب دی"
+      }
+    },
+    "surah": {
+      "number": 1,
+      "name": "Al-Fatihah",
+      "nameArabic": "الفاتحة"
+    },
+    "tafseer": [
+      {
+        "name": "Ibn Kathir",
+        "url": "https://quran.com/1/2/tafsirs/en-tafisr-ibn-kathir"
+      }
+    ]
+  },
+  {
+    "verse": {
+      "number": 1,
+      "arabic": "قُلْ هُوَ اللَّهُ أَحَدٌ",
+      "translation": {
+        "en": "Say, He is Allah, [who is] One.",
+        "ur": "کہہ دو کہ وہ اللہ ایک ہے",
+        "ps": "ووایه چې هغه الله یو دی"
+      }
+    },
+    "surah": {
+      "number": 112,
+      "name": "Al-Ikhlas",
+      "nameArabic": "الإخلاص"
+    },
+    "tafseer": [
+      {
+        "name": "Ibn Kathir",
+        "url": "https://quran.com/112/1/tafsirs/en-tafisr-ibn-kathir"
+      }
+    ]
+  },
+  {
+    "verse": {
+      "number": 2,
+      "arabic": "اللَّهُ الصَّمَدُ",
+      "translation": {
+        "en": "Allah, the Eternal Refuge.",
+        "ur": "اللہ بے نیاز ہے",
+        "ps": "الله بې نیازه دی"
+      }
+    },
+    "surah": {
+      "number": 112,
+      "name": "Al-Ikhlas",
+      "nameArabic": "الإخلاص"
+    },
+    "tafseer": [
+      {
+        "name": "Ibn Kathir",
+        "url": "https://quran.com/112/2/tafsirs/en-tafisr-ibn-kathir"
+      }
+    ]
+  },
+  {
+    "verse": {
+      "number": 186,
+      "arabic": "وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ",
+      "translation": {
+        "en": "And when My servants ask you concerning Me - indeed I am near. I respond to the invocation of the supplicant when he calls upon Me.",
+        "ur": "اور جب میرے بندے میرے بارے میں تم سے پوچھیں تو میں قریب ہوں۔ میں پکارنے والے کی پکار کا جواب دیتا ہوں جب وہ مجھے پکارے",
+        "ps": "او کله چې زما بندګان ستاسو څخه زما په اړه پوښتنه وکړي نو زه نږدې یم۔ زه د دعا کوونکي دعا ته ځواب ورکوم کله چې هغه ما ته دعا کوي"
+      }
+    },
+    "surah": {
+      "number": 2,
+      "name": "Al-Baqarah",
+      "nameArabic": "البقرة"
+    },
+    "tafseer": [
+      {
+        "name": "Ibn Kathir",
+        "url": "https://quran.com/2/186/tafsirs/en-tafisr-ibn-kathir"
+      }
+    ]
+  }
+]
