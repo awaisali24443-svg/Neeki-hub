@@ -4,7 +4,7 @@
  */
 
 import StorageManager from './storage.js';
-import I18n from './i18n.js';
+import I18n from './il8n.js';
 
 const PrayerTimer = {
   prayers: ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'],
