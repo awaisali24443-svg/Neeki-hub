@@ -1,34 +1,52 @@
 {
-  "name": "neekihub",
+  "name": "neeki-hub",
   "version": "1.0.0",
-  "description": "Complete Islamic Learning & Utility Platform with AI Assistant",
+  "description": "Neeki Hub - Islamic Spiritual Dashboard (Production PWA)",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "NODE_ENV=development node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "build": "node scripts/build.js",
+    "generate-icons": "node scripts/generate-icons.js",
+    "zip": "npm run build && zip -r neeki-hub-build.zip dist/ -x node_modules/\\* .git/\\* *.log",
+    "test": "node --test tests/*.test.js",
+    "lighthouse": "lighthouse http://localhost:3000 --view --output html --output-path ./lighthouse-report.html",
+    "lint": "eslint src/ api/ --fix",
+    "setup": "npm install && npm run generate-icons && echo '\n✅ Setup complete! Create .env file and add your API keys.\n'"
   },
   "keywords": [
     "islamic",
+    "pwa",
     "quran",
     "prayer",
-    "ai",
-    "pwa",
-    "duas",
-    "namaz"
+    "spiritual",
+    "muslim",
+    "dua",
+    "hadith",
+    "qibla",
+    "offline-first"
   ],
-  "author": "Neekihub Team",
+  "author": "Neeki Hub Team",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awaisali24443-svg/Neeki-hub.git"
+  },
   "dependencies": {
     "express": "^4.18.2",
-    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
     "compression": "^1.7.4",
-    "helmet": "^7.1.0"
+    "express-rate-limit": "^7.1.5"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "lighthouse": "^11.4.0",
+    "eslint": "^8.55.0"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }
