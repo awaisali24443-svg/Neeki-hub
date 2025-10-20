@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Neeki Hub - Your comprehensive Islamic spiritual companion for Quran, Prayer Times, Duas, Hadith, and AI-powered guidance">
+  <meta name="keywords" content="Islamic app, Quran, Prayer times, Duas, Hadith, Qibla, Muslim, PWA, Islamic guidance">
+  <meta name="author" content="Neeki Hub Team">
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#d4af37">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Neeki Hub">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Icons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/icon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/icon-144x144.png">
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.aladhan.com">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/src/styles/style.css">
+  <link rel="stylesheet" href="/src/styles/animations.css">
+  
+  <title>Neeki Hub - Islamic Spiritual Dashboard</title>
+</head>
+<body>
+
+  <!-- SVG Definitions (Gradients, Filters, Patterns) -->
+  <svg width="0" height="0" style="position: absolute; pointer-events: none;" aria-hidden="true">
+    <defs>
+      <!-- Gold Gradient for Text and Icons -->
+      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#b8860b;stop-opacity:1" />
+        <stop offset="50%" style="stop-color:#d4af37;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#f5d76e;stop-opacity:1" />
+      </linearGradient>
+      
+      <!-- Glow Filter -->
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      
+      <!-- Subtle Shadow -->
+      <filter id="softShadow">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Background Layer (Night Sky) -->
+  <div class="background-layer" aria-hidden="true">
+    <div class="stars" id="stars"></div>
+    <div class="moon" id="moon"></div>
+    <div class="horizon" id="horizon">
+      <!-- Placeholder divs for skyline (replace with SVGs if available) -->
+      <div class="kaaba-silhouette" style="width: 100px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
+      <div class="masjid-silhouette" style="width: 120px; height: 90px; background: rgba(255,255,255,0.1); border-radius: 4px; margin-left: 20px;"></div>
+    </div>
+  </div>
+
+  <!-- Main App Container -->
+  <div class="app-container" id="app">
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav" id="mainNav" role="navigation" aria-label="Main navigation">
+      <div class="nav-brand">
+        <div class="logo" style="width: 50px; height: 50px; background: var(--gold-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--color-bg); font-size: 1.2rem;">NH</div>
+      </div>
+      <ul class="nav-items">
+        <li>
+          <button class="nav-btn active" data-section="dashboard" aria-label="Dashboard" title="Dashboard">
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+            <span class="nav-label">Home</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-btn" data-section="quran" aria-label="Quran" title="Quran">
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
+            </svg>
+            <span class="nav-label">Quran</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-btn" data-section="hadith" aria-label="Hadith" title="Hadith">
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+            </svg>
+            <span class="nav-label">Hadith</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-btn" data-section="dua" aria-label="Duas" title="Duas">
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+            </svg>
+            <span class="nav-label">Duas</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-btn" data-section="qibla" aria-label="Qibla Finder" title="Qibla">
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
+            </svg>
+            <span class="nav-label">Qibla</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-btn" data-section="settings" aria-label="Settings" title="Settings">
+            <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+            </svg>
+            <span class="nav-label">Settings</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent" role="main">
+      
+      <!-- ============================================ -->
+      <!-- DASHBOARD SECTION -->
+      <!-- ============================================ -->
+      <section class="section active" id="dashboard-section" data-section="dashboard">
+        <header class="section-header">
+          <h1 class="gold-text">As-salamu alaykum</h1>
+          <p class="subtitle" id="hijriDate">Loading date...</p>
+        </header>
+
+        <!-- Next Prayer Card -->
+        <div class="glass-card prayer-card">
+          <div class="prayer-info">
+            <h2 class="gold-text">Next Prayer</h2>
+            <div class="prayer-name gold-text" id="nextPrayerName">Loading...</div>
+            <div class="prayer-time" id="nextPrayerTime">--:--</div>
+            <div class="prayer-countdown" id="prayerCountdown">Calculating...</div>
+            <div class="location" id="userLocation">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span>Detecting location...</span>
+            </div>
+          </div>
+          <div class="prayer-progress">
+            <svg class="progress-ring" width="200" height="200">
+              <circle class="progress-ring-bg" cx="100" cy="100" r="90" />
+              <circle class="progress-ring-fill" id="progressCircle" cx="100" cy="100" r="90" stroke="url(#goldGradient)" />
+            </svg>
+            <div class="progress-text" id="progressText">0%</div>
+          </div>
+        </div>
+
+        <!-- Daily Content Carousel -->
+        <div class="glass-card daily-content">
+          <div class="card-header">
+            <h3 class="gold-text">Daily Inspiration</h3>
+            <div class="controls">
+              <button class="icon-btn" id="prevDaily" aria-label="Previous">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+              </button>
+              <button class="icon-btn" id="nextDaily" aria-label="Next">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                </svg>
+              </button>
+              <button class="icon-btn" id="bookmarkDaily" aria-label="Bookmark">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="daily-item" id="dailyContent">
+            <p class="arabic-text">Loading...</p>
+            <p class="translation">Loading translation...</p>
+            <p class="reference gold-text">Loading reference...</p>
+          </div>
+        </div>
+
+        <!-- Quick Access Grid -->
+        <div class="quick-access">
+          <button class="quick-btn glass-card" data-action="quran">
+            <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1z"/>
+            </svg>
+            <span class="gold-text">Learn Quran</span>
+          </button>
+          <button class="quick-btn glass-card" data-action="tafseer">
+            <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+            <span class="gold-text">Tafseer</span>
+          </button>
+          <button class="quick-btn glass-card" data-action="bookmarks">
+            <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+            </svg>
+            <span class="gold-text">Bookmarks</span>
+          </button>
+          <button class="quick-btn glass-card" data-action="notifications">
+            <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+            </svg>
+            <span class="gold-text">Notifications</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- QURAN SECTION -->
+      <!-- ============================================ -->
+      <section class="section" id="quran-section" data-section="quran" style="display:none;">
+        <header class="section-header">
+          <h2 class="gold-text">Learn Quran</h2>
+          <p class="subtitle">Read, learn, and reflect on the Holy Quran</p>
+        </header>
+        <div class="glass-card" id="quranContent">
+          <div class="loading">Loading Quran...</div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- HADITH SECTION -->
+      <!-- ============================================ -->
+      <section class="section" id="hadith-section" data-section="hadith" style="display:none;">
+        <header class="section-header">
+          <h2 class="gold-text">Hadith Collection</h2>
+          <p class="subtitle">Authentic sayings of Prophet Muhammad ﷺ</p>
+        </header>
+        <div class="glass-card" id="hadithContent">
+          <div class="loading">Loading Hadith...</div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- DUA SECTION -->
+      <!-- ============================================ -->
+      <section class="section" id="dua-section" data-section="dua" style="display:none;">
+        <header class="section-header">
+          <h2 class="gold-text">Duas & Supplications</h2>
+          <p class="subtitle">Powerful prayers for every occasion</p>
+        </header>
+        <div class="glass-card" id="duaContent">
+          <div class="loading">Loading Duas...</div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- QIBLA SECTION -->
+      <!-- ============================================ -->
+      <section class="section" id="qibla-section" data-section="qibla" style="display:none;">
+        <header class="section-header">
+          <h2 class="gold-text">Qibla Finder</h2>
+          <p class="subtitle">Find the direction to Kaaba from anywhere</p>
+        </header>
+        <div class="glass-card qibla-container" id="qiblaContent">
+          <div class="loading">Loading Qibla Finder...</div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SETTINGS SECTION -->
+      <!-- ============================================ -->
+      <section class="section" id="settings-section" data-section="settings" style="display:none;">
+        <header class="section-header">
+          <h2 class="gold-text">Settings</h2>
+          <p class="subtitle">Customize your experience</p>
+        </header>
+        <div class="glass-card" id="settingsContent">
+          <div class="loading">Loading Settings...</div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ============================================ -->
+    <!-- FLOATING AI ASSISTANT BUTTON -->
+    <!-- ============================================ -->
+    <button class="ai-fab" id="aiFab" aria-label="Open AI Assistant" title="Ask Islamic Questions">
+      <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+        <circle cx="12" cy="10" r="1.5"/>
+        <circle cx="8" cy="10" r="1.5"/>
+        <circle cx="16" cy="10" r="1.5"/>
+      </svg>
+    </button>
+
+    <!-- ============================================ -->
+    <!-- AI CHAT MODAL -->
+    <!-- ============================================ -->
+    <div class="modal" id="aiModal" role="dialog" aria-labelledby="aiModalTitle" aria-modal="true" aria-hidden="true" style="display:none;">
+      <div class="modal-content glass-card">
+        <div class="modal-header">
+          <h3 id="aiModalTitle" class="gold-text">Islamic AI Assistant</h3>
+          <button class="icon-btn close-modal" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="chat-container" id="chatContainer">
+          <div class="chat-message bot">
+            <p>As-salamu alaykum! I'm here to answer your Islamic questions. Ask me anything about Quran, Hadith, Fiqh, or Islamic practices.</p>
+          </div>
+        </div>
+        <div class="chat-input-container">
+          <textarea 
+            id="chatInput" 
+            placeholder="Ask an Islamic question..." 
+            rows="2"
+            aria-label="Chat input"
+            maxlength="500"
+          ></textarea>
+          <button id="sendChat" class="send-btn" aria-label="Send message">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- TOAST NOTIFICATIONS CONTAINER -->
+    <!-- ============================================ -->
+    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- ============================================ -->
+    <!-- PWA INSTALL PROMPT -->
+    <!-- ============================================ -->
+    <div class="install-prompt glass-card" id="installPrompt" style="display:none;">
+      <p>📱 Install Neeki Hub for offline access and a better experience</p>
+      <button class="btn-primary" id="installBtn">Install App</button>
+      <button class="btn-text" id="dismissInstall">Maybe later</button>
+    </div>
+
+  </div>
+
+  <!-- ============================================ -->
+  <!-- JAVASCRIPT MODULES (ES6 Modules) -->
+  <!-- ============================================ -->
+  <script type="module" src="/src/js/app.js"></script>
+
+  <!-- ============================================ -->
+  <!-- SERVICE WORKER REGISTRATION -->
+  <!-- ============================================ -->
+  <script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => {
+            console.log('✅ Service Worker registered:', reg.scope);
+            
+            // Check for updates
+            reg.addEventListener('updatefound', () => {
+              const newWorker = reg.installing;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // New version available
+                  if (confirm('New version available! Reload to update?')) {
+                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                    window.location.reload();
+                  }
+                }
+              });
+            });
+          })
+          .catch(err => console.error('❌ SW registration failed:', err));
+      });
+
+      // Listen for controller change (new SW activated)
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload();
+      });
+    }
+
+    // PWA Install Prompt Handler
+    let deferredPrompt;
+    
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent default install prompt
+      e.preventDefault();
+      deferredPrompt = e;
+      
+      // Show custom install prompt
+      const prompt = document.getElementById('installPrompt');
+      if (prompt) prompt.style.display = 'flex';
+    });
+
+    // Install button click
+    document.addEventListener('DOMContentLoaded', () => {
+      const installBtn = document.getElementById('installBtn');
+      const dismissBtn = document.getElementById('dismissInstall');
+      
+      installBtn?.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          console.log(`Install prompt outcome: ${outcome}`);
+          deferredPrompt = null;
+          document.getElementById('installPrompt').style.display = 'none';
+        }
+      });
+
+      dismissBtn?.addEventListener('click', () => {
+        document.getElementById('installPrompt').style.display = 'none';
+        // Remember user dismissed (optional)
+        localStorage.setItem('installPromptDismissed', 'true');
+      });
+    });
+
+    // Handle app installed event
+    window.addEventListener('appinstalled', () => {
+      console.log('✅ PWA installed successfully');
+      deferredPrompt = null;
+      document.getElementById('installPrompt').style.display = 'none';
+    });
+
+    // Online/Offline detection
+    window.addEventListener('online', () => {
+      console.log('✅ Connection restored');
+    });
+
+    window.addEventListener('offline', () => {
+      console.log('⚠️ Connection lost - Running in offline mode');
+    });
+  </script>
+
+</body>
+</html>
