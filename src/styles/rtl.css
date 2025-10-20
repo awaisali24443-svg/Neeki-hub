@@ -1,0 +1,158 @@
+/* ========================================
+   RTL (Right-to-Left) STYLESHEET
+   For Urdu & Pashto Languages
+======================================== */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Navigation adjustments */
+[dir="rtl"] .main-nav {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .app-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 768px) {
+  [dir="rtl"] .app-container {
+    padding-left: 0;
+    padding-right: 80px;
+  }
+
+  [dir="rtl"] .main-nav {
+    left: auto;
+    right: 0;
+    border-right: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+[dir="rtl"] .nav-btn.active::after {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+@media (min-width: 768px) {
+  [dir="rtl"] .nav-btn.active::after {
+    left: auto;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
+
+/* Chat messages */
+[dir="rtl"] .chat-message.user {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .chat-message.bot {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Controls and buttons */
+[dir="rtl"] .controls {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .card-header {
+  flex-direction: row-reverse;
+}
+
+/* Location icon */
+[dir="rtl"] .location {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .location svg {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* AI FAB */
+[dir="rtl"] .ai-fab {
+  right: auto;
+  left: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  [dir="rtl"] .ai-fab {
+    left: var(--spacing-xl);
+  }
+}
+
+/* Install prompt */
+[dir="rtl"] .install-prompt {
+  left: auto;
+  right: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  [dir="rtl"] .install-prompt {
+    left: auto;
+    right: calc(80px + var(--spacing-lg));
+  }
+}
+
+/* Toast notifications */
+[dir="rtl"] .toast-container {
+  right: auto;
+  left: var(--spacing-lg);
+}
+
+[dir="rtl"] .toast {
+  border-left: none;
+  border-right: 4px solid var(--gold-primary);
+}
+
+[dir="rtl"] .toast.success { border-right-color: #4caf50; }
+[dir="rtl"] .toast.error { border-right-color: #f44336; }
+[dir="rtl"] .toast.info { border-right-color: var(--gold-primary); }
+
+/* Prayer card layout */
+[dir="rtl"] .prayer-card {
+  direction: rtl;
+}
+
+/* Quick access grid - maintain LTR for icons */
+[dir="rtl"] .quick-access {
+  direction: ltr;
+}
+
+[dir="rtl"] .quick-btn {
+  direction: rtl;
+}
+
+/* Qibla compass - always LTR */
+[dir="rtl"] .qibla-compass {
+  direction: ltr;
+}
+
+/* Verse navigation */
+[dir="rtl"] .verse-navigation {
+  flex-direction: row-reverse;
+}
+
+/* Modal header */
+[dir="rtl"] .modal-header {
+  flex-direction: row-reverse;
+}
+
+/* Chat input container */
+[dir="rtl"] .chat-input-container {
+  flex-direction: row-reverse;
+}
+
+/* Arabic text always RTL regardless of page direction */
+.arabic-text {
+  direction: rtl !important;
+  text-align: right !important;
+}
