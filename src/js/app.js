@@ -4,7 +4,7 @@
  */
 
 import StorageManager from './storage.js';
-import I18n from './i18n.js';
+import I18n from './il8n.js';
 import PrayerTimer from './prayer-timer.js';
 import QiblaFinder from './qibla.js';
 import AIChat from './ai-chat.js';
